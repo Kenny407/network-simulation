@@ -6,8 +6,9 @@ $ns trace-all $out
 set out2 [open KVsLossRate.tr a]
 
 proc finish {} {
-    global ns out K lossRate out2
-    puts $out2 "$K $lossRate"
+    global ns out K lossRate out2 b
+    #puts $out2 "$K $lossRate"
+    puts "$K $b $lossRate"
     $ns flush-trace
     close $out
     close $out2
@@ -17,7 +18,7 @@ proc finish {} {
 #Buffer size
 set K [lindex $argv 0]
 #burstiness 
-set b 5
+set b [lindex $argv 1]
 #ON period (ms)
 set Ton 1
 #OFF period (ms)
